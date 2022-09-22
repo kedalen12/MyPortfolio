@@ -34,11 +34,11 @@ function About({pageInfo}:Props) {
             <h4 className='text-4xl font-semibold'>
                 A <motion.span  initial={{opacity: 0}} whileInView={{opacity:1}} transition={{duration: 1}}  className='underline  decoration-[#F7AB0A]'>little</motion.span> backgorund
             </h4>
-            {pageInfo?.backGroundInformation.split("[SKIP]").map(strs => {
+            {pageInfo?.backGroundInformation.split("[SKIP]").map((strs,i) => {
                             
 
                 if(!strs.includes("|")) {
-                    return <p className='text-base text-justify'> {strs} </p>
+                    return <p key={i} className='text-base text-justify'> {strs} </p>
                 }
                 const getIndices = (searchStr:string, str:string) => {
                     var searchStrLen = searchStr.length;
@@ -62,10 +62,10 @@ function About({pageInfo}:Props) {
                     cPosition = indices[i]
                 }
 
-                return <p className='text-base text-justify'>
-                    {sStrins.map(s => {
+                return <p key={i}  className='text-base text-justify'>
+                    {sStrins.map((s,j) => {
                         if(s.startsWith('|')){
-                            return <span className='font-semibold text-[#F7AB0A]'>{s.substring(1,s.length)}</span>
+                            return <span key={j}  className='font-semibold text-[#F7AB0A]'>{s.substring(1,s.length)}</span>
                         }
                         return s
                     })}

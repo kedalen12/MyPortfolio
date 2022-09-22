@@ -45,15 +45,15 @@ function ExperienceCard({ experience }: Props) {
                     {/* Tech Used */}
                     
                     {experience.technologies?.map(tech => (
-                        <img className='h-10 w-10 rounded-full'
+                        <img key={tech._id} className='h-10 w-10 rounded-full'
                         src={urlFor(tech.image).url()}
                         alt={tech.title}/>
                     ))}
                 </div>
                 <p className='uppercase py-5 text-gray-300'>{getTimeFrame()}</p>
                 <ul className='list-disc space-y-4 ml-5 text-lg'>
-                    {experience.points.map(point => (
-                        <li>{point}</li>
+                    {experience.points.map((point,i) => (
+                        <li key={i}>{point}</li>
                     ))}
                   
                 </ul>

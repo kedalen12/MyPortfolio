@@ -8,6 +8,10 @@
 # testing
 /coverage
 
+
+#sanity
+sanity/node_modules
+
 # next.js
 /.next/
 /out/
